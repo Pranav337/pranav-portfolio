@@ -10,6 +10,21 @@
 </head>
 <body>
 
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">Profile</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <header>
         <div class="background-animation"></div>
         <div class="container">
@@ -84,13 +99,11 @@
             <h2 id="modal-title"></h2>
             <div class="modal-body">
                 <p id="modal-description"></p>
-                <div class="modal-media">
-                    <h3>Project Video</h3>
-                    <iframe id="modal-video" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="modal-docs">
-                    <h3>Documents & Schematics</h3>
-                    <ul id="modal-docs-list"></ul>
+                <div class="modal-link-container">
+                    <h3>Project Files</h3>
+                    <a id="modal-drive-link" href="#" target="_blank" class="drive-button">
+                        <i class="fab fa-google-drive"></i> View on Google Drive
+                    </a>
                 </div>
             </div>
         </div>

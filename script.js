@@ -3,7 +3,7 @@ const projects = [
     {
         title: "Homemade High-Precision Multimeter",
         description: "A detailed description of the Homemade High-Precision Multimeter project, its purpose, components, and my role in its development.",
-        videoUrl: "https://www.youtube.com/embed/j_hD2DqS-sU", // Placeholder video
+        videoUrl: "https://youtu.be/_sRhAzU18t8?si=tk9NENuRtdIZRf2m", // Placeholder video
         documents: [
             { name: "Project Report (PDF)", url: "#" }, // Placeholder link
             { name: "Schematics (PDF)", url: "#" }     // Placeholder link
@@ -123,4 +123,5 @@ document.addEventListener("DOMContentLoaded", () => {
     projects.forEach(project => {
         createProjectCard(project);
     });
+
 });

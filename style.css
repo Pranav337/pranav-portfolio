@@ -1,10 +1,11 @@
 :root {
     --dark-bg: #121212;
     --dark-surface: #1e1e1e;
-    --text-color: rgba(224, 224, 224, 0.8); /* Adjusted for subtle effect */
+    --text-color: rgba(224, 224, 224, 0.8);
     --accent-color: #bb86fc;
     --link-color: #03dac6;
     --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    --nav-height: 60px; /* Variable for navbar height */
 }
 
 * {
@@ -21,19 +22,73 @@ body {
     overflow-x: hidden;
 }
 
+/* --- Updated Navigation Bar Styles --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: rgba(30, 30, 30, 0.85); /* semi-transparent surface */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2000; /* Ensure it's above everything */
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end; /* Changed: Pushes items to the right */
+    align-items: center;
+    width: 100%;
+}
+
+/* .nav-brand style was removed */
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--dark-bg);
+    background-color: var(--accent-color);
+}
+
+.menu-icon {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+/* --- End of Nav Styles --- */
+
+
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Header Section with Animation */
 header {
     text-align: center;
-    padding: 100px 0 60px; /* Increased padding to make space for the background */
+    padding: 100px 0 60px;
     background: var(--dark-surface);
     position: relative;
     overflow: hidden;
+    scroll-margin-top: var(--nav-height); /* Offset for fixed nav */
 }
 
 .background-animation {
@@ -49,17 +104,13 @@ header {
 }
 
 @keyframes flow {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 200px 200px;
-    }
+    from { background-position: 0 0; }
+    to { background-position: 200px 200px; }
 }
 
 header .container {
     position: relative;
-    z-index: 1; /* Ensure text is above the animation */
+    z-index: 1;
 }
 
 header h1 {
@@ -74,10 +125,10 @@ header p {
     font-weight: 300;
 }
 
-/* General Sections */
 .section {
     padding: 60px 0;
     animation: fadeIn 1s ease-in-out;
+    scroll-margin-top: var(--nav-height); /* Offset for fixed nav */
 }
 
 .section:nth-child(odd) {
@@ -103,7 +154,6 @@ h2::after {
     transform: translateX(-50%);
 }
 
-/* Skills Section */
 #skills ul {
     list-style: none;
     display: flex;
@@ -127,7 +177,6 @@ h2::after {
     color: var(--dark-bg);
 }
 
-/* Project Grid */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -160,10 +209,9 @@ h2::after {
 
 .project-card p {
     font-size: 0.9rem;
-    color: rgba(224, 224, 224, 0.6); /* Adjusted for subtle effect */
+    color: rgba(224, 224, 224, 0.6);
 }
 
-/* Work Experience & Education */
 .job, .edu-item {
     background: var(--dark-bg);
     padding: 25px;
@@ -183,10 +231,9 @@ h2::after {
 }
 
 .job p {
-    color: rgba(224, 224, 224, 0.6); /* Adjusted for subtle effect */
+    color: rgba(224, 224, 224, 0.6);
 }
 
-/* Contact Section */
 .contact-info {
     text-align: center;
 }
@@ -206,25 +253,6 @@ h2::after {
     color: var(--accent-color);
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: var(--dark-bg);
-    border-top: 1px solid var(--dark-surface);
-}
-
-footer p {
-    font-size: 0.9rem;
-    color: rgba(224, 224, 224, 0.5); /* Adjusted for subtle effect */
-}
-
-footer a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -246,7 +274,7 @@ footer a {
     padding: 40px;
     border-radius: 10px;
     width: 90%;
-    max-width: 800px;
+    max-w: 800px;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
     animation: slideIn 0.5s ease-out;
@@ -271,33 +299,38 @@ footer a {
     margin-top: 20px;
 }
 
-.modal-media iframe {
-    width: 100%;
-    height: 400px;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
-    margin-bottom: 20px;
+.modal-link-container {
+    margin-top: 30px;
+    text-align: center;
 }
 
-.modal-docs {
-    list-style: none;
+.modal-link-container h3 {
+    margin-bottom: 15px;
+    color: var(--text-color);
+    font-weight: 600;
 }
 
-.modal-docs h3 {
-    margin-bottom: 10px;
-}
-
-.modal-docs li a {
-    color: var(--link-color);
+.drive-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+    padding: 12px 25px;
+    border-radius: 50px;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: var(--box-shadow);
 }
 
-.modal-docs li {
-    margin-bottom: 5px;
+.drive-button:hover {
+    background-color: var(--link-color);
+    transform: translateY(-3px);
 }
 
-/* Keyframe Animations */
+.drive-button .fab {
+    margin-right: 10px;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -308,7 +341,6 @@ footer a {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
@@ -323,7 +355,34 @@ footer a {
         margin: 10% auto;
         padding: 20px;
     }
-    .modal-media iframe {
-        height: 250px;
+    
+    /* --- Responsive Nav Bar Styles --- */
+    .nav-container {
+        justify-content: space-between; /* On mobile, space out the icon and links */
     }
+    .menu-icon {
+        display: block; /* Show hamburger icon */
+    }
+    .nav-links {
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--dark-surface);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+    }
+    .nav-links.active {
+        max-height: 300px; /* Animate open */
+        padding: 20px 0;
+    }
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    /* --- End of Responsive Nav Styles --- */
 }

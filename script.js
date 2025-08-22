@@ -1,57 +1,34 @@
-// A flexible way to manage projects. Just add or remove objects from this array.
+// A flexible way to manage projects.
 const projects = [
     {
         title: "Homemade High-Precision Multimeter",
         description: "A detailed description of the Homemade High-Precision Multimeter project, its purpose, components, and my role in its development.",
-        videoUrl: "https://youtu.be/_sRhAzU18t8?si=tk9NENuRtdIZRf2m", // Placeholder video
-        documents: [
-            { name: "Project Report (PDF)", url: "#" }, // Placeholder link
-            { name: "Schematics (PDF)", url: "#" }     // Placeholder link
-        ]
+        driveLink: "https://drive.google.com/drive/folders/your_dummy_link_here_1"
     },
     {
         title: "Linear Solar Charge Controller",
         description: "An overview of the Linear Solar Charge Controller. It was designed to manage charging solar batteries efficiently.",
-        videoUrl: "https://www.youtube.com/embed/j_hD2DqS-sU",
-        documents: [
-            { name: "Design Document (PDF)", url: "#" },
-            { name: "Circuit Diagram (PDF)", url: "#" }
-        ]
+        driveLink: "https://drive.google.com/drive/folders/your_dummy_link_here_2"
     },
     {
         title: "Voltage-Sensitive Circuit Breaker",
         description: "Description of a circuit breaker similar to an MCB, with an emphasis on its voltage-sensitive features and how it protects circuits.",
-        videoUrl: "https://www.youtube.com/embed/j_hD2DqS-sU",
-        documents: [
-            { name: "Project Document (PDF)", url: "#" }
-        ]
+        driveLink: "https://drive.google.com/drive/folders/your_dummy_link_here_3"
     },
     {
         title: "IoT-Based Energy Monitoring System",
         description: "A system designed to monitor and manage energy consumption using IoT technology, providing real-time data.",
-        videoUrl: "https://www.youtube.com/embed/j_hD2DqS-sU",
-        documents: [
-            { name: "Code Snippets", url: "#" },
-            { name: "System Architecture", url: "#" }
-        ]
+        driveLink: "https://drive.google.com/drive/folders/your_dummy_link_here_4"
     },
     {
         title: "MPPT Solar Charge Controller",
         description: "A more advanced solar charge controller using Maximum Power Point Tracking (MPPT) to maximize power from solar panels.",
-        videoUrl: "https://www.youtube.com/embed/j_hD2DqS-sU",
-        documents: [
-            { name: "MPPT Theory", url: "#" },
-            { name: "Schematics", url: "#" }
-        ]
+        driveLink: "https://drive.google.com/drive/folders/your_dummy_link_here_5"
     },
     {
         title: "Home Automation System",
         description: "A smart home system that uses microcontrollers and IoT to automate lights, appliances, and security.",
-        videoUrl: "https://www.youtube.com/embed/j_hD2DqS-sU",
-        documents: [
-            { name: "Source Code", url: "#" },
-            { name: "Installation Guide", url: "#" }
-        ]
+        driveLink: "https://drive.google.com/drive/folders/your_dummy_link_here_6"
     }
 ];
 
@@ -60,8 +37,7 @@ const projectGrid = document.querySelector(".project-grid");
 const modal = document.getElementById("project-modal");
 const modalTitle = document.getElementById("modal-title");
 const modalDescription = document.getElementById("modal-description");
-const modalVideo = document.getElementById("modal-video");
-const modalDocsList = document.getElementById("modal-docs-list");
+const modalDriveLink = document.getElementById("modal-drive-link"); 
 const closeButton = document.querySelector(".close-button");
 
 // Function to create project cards
@@ -84,28 +60,13 @@ function createProjectCard(project) {
 function openModal(project) {
     modalTitle.textContent = project.title;
     modalDescription.textContent = project.description;
-    modalVideo.src = project.videoUrl;
-
-    // Clear previous documents
-    modalDocsList.innerHTML = "";
-    project.documents.forEach(doc => {
-        const listItem = document.createElement("li");
-        const link = document.createElement("a");
-        link.href = doc.url;
-        link.textContent = doc.name;
-        link.target = "_blank";
-        listItem.appendChild(link);
-        modalDocsList.appendChild(listItem);
-    });
-
+    modalDriveLink.href = project.driveLink;
     modal.style.display = "block";
 }
 
 // Function to close the modal
 function closeModal() {
     modal.style.display = "none";
-    // Pause the video when closing
-    modalVideo.src = "";
 }
 
 // Close the modal when the close button is clicked
@@ -118,10 +79,18 @@ window.addEventListener("click", (event) => {
     }
 });
 
-// Build the project grid when the page loads
+// Build the project grid and set up nav menu when the page loads
 document.addEventListener("DOMContentLoaded", () => {
+    // Build project cards
     projects.forEach(project => {
         createProjectCard(project);
     });
 
+    // --- New code for the navigation menu ---
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
 });

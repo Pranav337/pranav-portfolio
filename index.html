@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav Dharmale | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="background-animation"></div>
+        <div class="container">
+            <h1>PRANAV DHARMALE</h1>
+            <p>Electrical Engineer specializing in Embedded Systems</p>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>Profile</h2>
+            <p>As an enthusiastic and driven electrical engineer, I specialize in building innovative embedded systems and electronics projects. My biggest achievements include designing a high-precision homemade multimeter and developing several solar charge controllers, including both linear and MPPT. With a passion for creating high-level projects, I bring strong leadership, problem-solving, and technical skills to every challenge.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>Embedded System Design</li>
+                <li>Circuit Design and Analysis</li>
+                <li>IoT Development</li>
+                <li>Microcontroller Programming (Arduino)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Work Experience</h2>
+            <div class="job">
+                <h3>Class Representative (CR), 1st Year</h3>
+                <p>Acted as a liaison between faculty and 60+ students, ensuring smooth communication of academic updates, deadlines, and feedback. Coordinated with faculty for scheduling exams, resolving student issues, and managing classroom logistics.</p>
+            </div>
+            <div class="job">
+                <h3>Head, Renewable Energy Club</h3>
+                <p>Currently leading a team of 10+ members to organize workshops and hands-on solar/wind energy projects. I am driving collaboration with faculty and external mentors to promote sustainable energy practices on campus. I'm also spearheading the development of innovative solar-based projects, including an MPPT controller and a linear solar charge controller.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="edu-item">
+                <p><strong>B.Tech in Electrical Engineering</strong> (Final Year)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> pranavdharmale2424@gmail.com</p>
+                <p><i class="fab fa-linkedin"></i> <a href="#" target="_blank">LinkedIn Profile</a></p>
+            </div>
+        </div>
+    </section>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div class="modal-body">
+                <p id="modal-description"></p>
+                <div class="modal-media">
+                    <h3>Project Video</h3>
+                    <iframe id="modal-video" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="modal-docs">
+                    <h3>Documents & Schematics</h3>
+                    <ul id="modal-docs-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
